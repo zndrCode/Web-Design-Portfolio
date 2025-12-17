@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zander Nacario | Web & UI Designer</title>
+
+  <meta name="description" content="Web & UI Designer specializing in clean, user-focused interfaces.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">ZN</div>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav id="navMenu">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    "
+  >
+    <div style="max-width: 520px;">
+      <p class="eyebrow">WEB & UI DESIGNER</p>
+
+      <h1>Zander Nacario</h1>
+
+      <p class="hero-text">
+        I design clean, intuitive interfaces for web and mobile applications,
+        focused on usability and real-world impact.
+      </p>
+
+      <a 
+        href="https://github.com/zndrCode" 
+        target="_blank" 
+        class="cta"
+        style="display: inline-flex; align-items: center; gap: 10px;"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.304-5.467-1.333-5.467-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.524.116-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        View My Work
+      </a>
+    </div>
+
+    <img 
+      src="zander_profile.jpg" 
+      alt="Zander Nacario profile photo"
+      style="
+        width: 350px;
+        height: 350px;
+        padding-right: 10px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #eee;
+        flex-shrink: 0;
+      "
+    >
+  </div>
+
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Selected Projects</h2>
+
+  <div class="project-card">
+    <img src="Eventra.png" alt="Eventra mobile app">
+
+    <div class="project-content">
+      <h3>Eventra</h3>
+      <p class="project-role">Calendar Event Management Mobile App</p>
+
+      <p>
+        Eventra is a mobile app that helps users organize and manage events
+        through a clean, calendar-based interface.
+      </p>
+
+      <ul class="project-points">
+        <li>Designed intuitive calendar workflows</li>
+        <li>Focused on usability and accessibility</li>
+        <li>Built for Android platforms</li>
+      </ul>
+
+      <p class="tech">
+        Figma • Android Studio • Java • Kotlin
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill">HTML5</div>
+    <div class="skill">CSS</div>
+    <div class="skill">Figma</div>
+    <div class="skill">Framer</div>
+    <div class="skill">Webflow</div>
+    <div class="skill">Android Studio</div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+
+  <p class="about-text">
+    I’m a Web & UI Designer who enjoys creating clean, user-centered digital
+    experiences. I focus on clarity, simplicity, and usability.
+  </p>
+
+  <p class="about-text">
+    Based in Davao City, Philippines. Currently pursuing BSIT with hands-on
+    experience in web design, UI prototyping, and mobile applications.
+  </p>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+
+  <div class="contact-box">
+    <p>📧 nzandergab@gmail.com</p>
+    <p>📍 Davao City, Philippines</p>
+  </div>
+
+  <form class="contact-form" id="contactForm">
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="email" id="email" placeholder="Your Email" required>
+  <textarea id="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+
+<footer>
+  <p>© 2025 Zander Nacario</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
