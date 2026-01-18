@@ -8,11 +8,17 @@
   <meta name="description" content="Web & UI Designer specializing in clean, user-focused interfaces.">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="page">
+
+  <!-- DARK MODE TOGGLE (Top left) -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
 
   <!-- PROFILE HEADER -->
   <header class="profile-header">
@@ -20,8 +26,8 @@
 
     <div class="profile-info">
       <h1>Zander Nacario</h1>
-      <p class="location">📍 Davao City, Philippines</p>
-      <p class="role">Web & UI Designer</p>
+      <p class="location">Davao City, Philippines</p>
+      <p class="role">UI/UX Designer \ Video Editor</p>
 
       <div class="profile-actions">
         <a href="#contact" class="btn primary">Send Email</a>
@@ -40,22 +46,34 @@
         <h2>About</h2>
         <p>I'm a UI/UX Designer specializing in developing solutions with Figma, Tailwind, and CSS.</p><br>
 
-        <p>I work on projects including building modern web applications, mobile apps, search engine optimization, digital marketing, and making code tutorials.</p>
-        <p>Lately, I've been diving deeper into the world of artificial intelligence, focusing on integrating AI tools and techniques into modern applications.</p><br>
+        <p>I work on projects including building modern web applications, mobile apps, search engine optimization, digital marketing, and making code tutorials.
+          I've been diving deeper into the world of artificial intelligence,
+          focusing on integrating AI tools and techniques into modern applications.</p><br>
 
         <p>
           Currently pursuing BSIT with hands-on experience in web design, ui/ux prototyping, and mobile applications.
       </div>
 
+      <!-- UPDATED TECH STACK SECTION -->
       <div class="card">
         <h2>Tech Stack</h2>
-        <div class="chip-group">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>Figma</span>
-          <span>Framer</span>
-          <span>Webflow</span>
-          <span>Android Studio</span>
+        
+        <div class="stack-category">
+          <h3 class="category-title">Frontend</h3>
+          <div class="chip-group">
+            <span class="chip">JavaScript</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">HTML</span>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3 class="category-title">Backend</h3>
+          <div class="chip-group">
+            <span class="chip">MySQL</span>
+            <span class="chip">Python</span>
+            <span class="chip">PHP</span>
+          </div>
         </div>
       </div>
 
@@ -64,10 +82,7 @@
         <h2>Beyond Coding</h2>
         <p>
           When not designing or writing code, I focus on enhancing my video editing skills,
-          drawing, and learning videography.
-        </p><br>
-        <p>
-          I enjoy sharing knowledge through work, experimentation,
+          drawing, and learning videography. I enjoy sharing knowledge through work, experimentation,
           and continuous learning.
         </p>
       </div>
@@ -110,7 +125,7 @@
         </div>
       </div>
 
-      <!-- CONTACT - NOW IN RIGHT COLUMN -->
+      <!-- CONTACT -->
       <section id="contact" class="card">
         <h2>Contact</h2>
 
@@ -119,22 +134,13 @@
           Feel free to reach out anytime.
         </p>
 
-        <div class="contact-details">
-          <div class="contact-item">
-            <p>nzandergab@gmail.com</p>
-          </div>
-          <div class="contact-item">
-            <span>Davao City, Philippines</span>
-          </div>
-        </div>
-
         <form id="contactForm" class="contact-form">
           <div class="form-row">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
           </div>
 
-          <textarea placeholder="Your Message" required></textarea>
+          <textarea id="message" placeholder="Your Message" required></textarea>
 
           <button type="submit" class="btn primary">
             Send Message →
