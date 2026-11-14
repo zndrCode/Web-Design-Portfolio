@@ -1,0 +1,1010 @@
+/* ==========================================================================
+   Zander Nacario - Portfolio Stylesheet (Bento Grid Edition)
+   Clean, Accessible, Modular, Mobile-First Responsive Design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Variables
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --bg-color: #f6f7f9;
+  --text-color: #111418;
+  --card-bg: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --card-border: #e3e6ec;
+  --card-border-hover: #cbcfd8;
+  --muted-text: #687182;
+  --primary-btn-bg: #111418;
+  --primary-btn-color: #ffffff;
+  --chip-bg: #f0f2f5;
+  --input-bg: #f9fafb;
+  --shadow-color: rgba(17, 20, 24, 0.08);
+  --hover-bg: #f3f5f8;
+  --accent-color: #4f46e5;
+  --focus-ring: rgba(79, 70, 229, 0.25);
+  --success-color: #16a34a;
+  --error-color: #dc2626;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0b0c10;
+  --text-color: #f1f3f7;
+  --card-bg: #13151b;
+  --nav-bg: rgba(19, 21, 27, 0.85);
+  --card-border: #222530;
+  --card-border-hover: #363b4d;
+  --muted-text: #969eb0;
+  --primary-btn-bg: #f1f3f7;
+  --primary-btn-color: #0b0c10;
+  --chip-bg: #1a1d26;
+  --input-bg: #181b24;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --hover-bg: #1c202b;
+  --accent-color: #818cf8;
+  --focus-ring: rgba(129, 140, 248, 0.35);
+  --success-color: #4ade80;
+  --error-color: #f87171;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: clip;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-text);
+}
+
+.page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Smooth anchor offset for sticky header */
+section[id],
+article[id] {
+  scroll-margin-top: 85px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Sticky Navigation Bar
+   -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 16px;
+  z-index: 1000;
+  margin-bottom: 24px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px -5px var(--shadow-color);
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-color);
+  background: var(--hover-bg);
+}
+
+.nav-link.active {
+  color: var(--text-color);
+  background: var(--chip-bg);
+  font-weight: 600;
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--chip-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--hover-bg);
+  transform: scale(1.05);
+}
+
+.theme-toggle i {
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle i {
+  transform: rotate(360deg);
+}
+
+/* --------------------------------------------------------------------------
+   3. Bento Grid Container
+   -------------------------------------------------------------------------- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+/* Base Bento Card */
+.bento-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.bento-card:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: 0 10px 24px -10px var(--shadow-color);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.card-header h2,
+.card-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-header h2 i,
+.card-header h3 i {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero Tile (Span 8)
+   -------------------------------------------------------------------------- */
+.bento-hero {
+  grid-column: span 8;
+  gap: 20px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  width: fit-content;
+}
+
+[data-theme="dark"] .status-badge {
+  background: rgba(34, 197, 94, 0.14);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.hero-profile {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  border: 1px solid var(--card-border);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.hero-text h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.hero-text .role {
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.hero-text .location {
+  font-size: 0.88rem;
+  color: var(--muted-text);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--muted-text);
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+/* Button Component */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 42px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: var(--hover-bg);
+  border-color: var(--card-border-hover);
+}
+
+.btn.primary {
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-color);
+  border-color: var(--primary-btn-bg);
+}
+
+.btn.primary:hover {
+  opacity: 0.92;
+  background: var(--primary-btn-bg);
+}
+
+/* --------------------------------------------------------------------------
+   5. Experience Tile (Span 4)
+   -------------------------------------------------------------------------- */
+.bento-experience {
+  grid-column: span 4;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 14px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 3px;
+  width: 2px;
+  background: var(--card-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 18px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -15px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--primary-btn-bg);
+}
+
+.timeline-content strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.timeline-period {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted-text);
+  margin-top: 2px;
+}
+
+.timeline-content p {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  margin-top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Tech Stack Tile (Span 4)
+   -------------------------------------------------------------------------- */
+.bento-stack {
+  grid-column: span 4;
+}
+
+.stack-category {
+  margin-bottom: 18px;
+}
+
+.stack-category:last-child {
+  margin-bottom: 0;
+}
+
+.category-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  color: var(--muted-text);
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--chip-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+}
+
+/* Category Chip Palettes - Light Mode */
+.design-chips .chip {
+  background-color: #faf5ff;
+  border-color: #e9d5ff;
+  color: #7e22ce;
+}
+
+.frontend-chips .chip {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.backend-chips .chip {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d;
+}
+
+.beyond-chips .chip {
+  background-color: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+}
+
+/* Category Chip Palettes - Dark Mode */
+[data-theme="dark"] .design-chips .chip {
+  background-color: #271438;
+  border-color: #4c1d95;
+  color: #c084fc;
+}
+
+[data-theme="dark"] .frontend-chips .chip {
+  background-color: #132238;
+  border-color: #1e3a8a;
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .backend-chips .chip {
+  background-color: #0f291e;
+  border-color: #065f46;
+  color: #4ade80;
+}
+
+[data-theme="dark"] .beyond-chips .chip {
+  background-color: #2e1708;
+  border-color: #7c2d12;
+  color: #fb923c;
+}
+
+/* --------------------------------------------------------------------------
+   7. About & Beyond Coding Tiles (Span 4 each)
+   -------------------------------------------------------------------------- */
+.bento-about,
+.bento-beyond {
+  grid-column: span 4;
+  gap: 12px;
+}
+
+.bento-about p,
+.bento-beyond p {
+  font-size: 0.92rem;
+  color: var(--muted-text);
+  line-height: 1.65;
+}
+
+.bento-about p + p {
+  margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Featured Projects (Span 6 each)
+   -------------------------------------------------------------------------- */
+.bento-project {
+  grid-column: span 6;
+}
+
+.header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+}
+
+.project-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.project-thumb {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  position: relative;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.bento-project:hover .project-thumb img {
+  transform: scale(1.03);
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-title-row h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.project-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  border: 1px solid var(--card-border);
+  color: var(--muted-text);
+}
+
+.project-summary {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  line-height: 1.55;
+}
+
+.project-actions {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Graphic Design Showcase Gallery (Span 12, Horizontal Scroll)
+   -------------------------------------------------------------------------- */
+.bento-gallery {
+  grid-column: span 12;
+  gap: 16px;
+}
+
+.gallery-intro h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.gallery-intro p {
+  font-size: 0.92rem;
+  color: var(--muted-text);
+  line-height: 1.5;
+}
+
+.gallery-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 2px 14px;
+  cursor: grab;
+  user-select: none;
+}
+
+.gallery-scroll.grabbing {
+  cursor: grabbing;
+}
+
+/* Subtle horizontal scrollbar */
+.gallery-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-scroll::-webkit-scrollbar-track {
+  background: var(--chip-bg);
+  border-radius: 999px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: var(--card-border-hover);
+  border-radius: 999px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-text);
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  height: 270px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  scroll-snap-align: start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 10px 24px -8px var(--shadow-color);
+}
+
+.gallery-item img {
+  height: 100%;
+  width: auto;
+  max-width: 360px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+   10. Contact Card (Span 12)
+   -------------------------------------------------------------------------- */
+.bento-contact {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+}
+
+.contact-info h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.contact-info p {
+  font-size: 0.95rem;
+  color: var(--muted-text);
+  line-height: 1.6;
+}
+
+.contact-direct {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.direct-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--chip-bg);
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+}
+
+.direct-email:hover {
+  border-color: var(--text-color);
+}
+
+.contact-location {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: var(--input-bg);
+  width: 100%;
+  color: var(--text-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.form-action-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-form button {
+  min-width: 155px;
+}
+
+.form-status {
+  display: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.form-status.success {
+  color: var(--success-color);
+}
+
+.form-status.error {
+  color: var(--error-color);
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  text-align: center;
+  margin-top: 36px;
+  color: var(--muted-text);
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Media Queries (Mobile & Tablet Responsiveness)
+   -------------------------------------------------------------------------- */
+/* Tablet Breakpoint (Max 992px) */
+@media (max-width: 992px) {
+  .bento-hero {
+    grid-column: span 12;
+  }
+
+  .bento-experience {
+    grid-column: span 12;
+  }
+
+  .bento-stack {
+    grid-column: span 12;
+  }
+
+  .bento-about {
+    grid-column: span 6;
+  }
+
+  .bento-beyond {
+    grid-column: span 6;
+  }
+
+  .bento-project {
+    grid-column: span 6;
+  }
+
+  .bento-gallery {
+    grid-column: span 12;
+  }
+
+  .bento-contact {
+    grid-column: span 12;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Mobile Breakpoint (Max 680px) */
+@media (max-width: 680px) {
+  .page {
+    padding: 16px 14px 40px;
+  }
+
+  header {
+    top: 10px;
+    margin-bottom: 16px;
+  }
+
+  .top-nav {
+    padding: 10px 14px;
+    border-radius: 14px;
+  }
+
+  .nav-link {
+    display: none; /* Keep top bar clean on small devices */
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .bento-card {
+    grid-column: span 1 !important;
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+
+  .hero-profile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.55rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .project-thumb {
+    height: 170px;
+  }
+
+  .gallery-item {
+    height: 210px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+}

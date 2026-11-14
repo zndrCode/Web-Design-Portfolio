@@ -3,161 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zander Nacario | Web & UI Designer</title>
+  <title>Zander Nacario | UI/UX & Graphic Designer</title>
 
-  <meta name="description" content="Web & UI Designer specializing in clean, user-focused interfaces.">
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Zander Nacario - UI/UX Designer & Graphic Designer crafting clean, human-centered digital experiences, visual designs, and modern web applications." />
+  <meta name="keywords" content="UI/UX Designer, Graphic Designer, Freelance Graphic Design, Web Developer, Figma, Tailwind CSS, Davao City, Portfolio" />
+  <meta name="author" content="Zander Nacario" />
+  <meta name="theme-color" content="#111418" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zander Nacario | UI/UX Designer & Web Developer" />
+  <meta property="og:description" content="UI/UX Designer specializing in clean, user-focused digital experiences with Figma, Tailwind CSS, and modern web technologies." />
+  <meta property="og:image" content="assets/images/zander_profile.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zander Nacario | UI/UX Designer & Web Developer" />
+  <meta name="twitter:description" content="UI/UX Designer specializing in clean, user-focused digital experiences with Figma, Tailwind CSS, and modern web technologies." />
+  <meta name="twitter:image" content="assets/images/zander_profile.jpg" />
+
+  <!-- Favicon (SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23111418'/><text x='50' y='65' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='46' text-anchor='middle'>ZN</text></svg>" />
+
+  <!-- Preconnect External Assets for Speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Instant Theme Execution (Prevents FOUC / Light Flash) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
 
-<div class="page">
+  <div class="page">
 
-  <!-- DARK MODE TOGGLE (Top left) -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-    <i class="fas fa-moon"></i>
-  </button>
+    <!-- TOP NAVIGATION BAR -->
+    <header>
+      <nav class="top-nav" aria-label="Main Navigation">
+        <a href="#" class="nav-brand" aria-label="Zander Nacario Home">
+          <span class="brand-badge" aria-hidden="true">ZN</span>
+          <span class="brand-name">Zander Nacario</span>
+        </a>
+        <div class="nav-actions">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#graphics" class="nav-link">Designs</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
 
-  <!-- PROFILE HEADER -->
-  <header class="profile-header">
-    <img src="zander_profile.jpg" alt="Zander profile" class="avatar">
+    <!-- BENTO GRID -->
+    <main class="bento-grid">
 
-    <div class="profile-info">
-      <h1>Zander Nacario</h1>
-      <p class="location">Davao City, Philippines</p>
-      <p class="role">UI/UX Designer \ Video Editor</p>
+      <!-- 1. HERO TILE -->
+      <section class="bento-card bento-hero" aria-labelledby="hero-title">
+        <div class="status-badge">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Available for projects</span>
+        </div>
 
-      <div class="profile-actions">
-        <a href="#contact" class="btn primary">Send Email</a>
-        <a href="https://github.com/zndrCode" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-  </header>
+        <div class="hero-profile">
+          <img src="assets/images/zander_profile.jpg" alt="Portrait photo of Zander Nacario" class="avatar" width="96" height="96" />
+          <div class="hero-text">
+            <h1 id="hero-title">Zander Nacario</h1>
+            <p class="role">UI/UX & Graphic Designer • Video Editor</p>
+            <p class="location"><i class="fas fa-location-dot" aria-hidden="true"></i> Davao City, Philippines</p>
+          </div>
+        </div>
 
-  <!-- MAIN GRID -->
-  <section class="main-grid">
+        <p class="hero-desc">
+          Crafting intuitive, human-centered digital experiences, freelance graphic designs, and modern web applications. Currently pursuing BSIT and open for freelance design collaborations.
+        </p>
 
-    <!-- LEFT COLUMN -->
-    <div class="left-column">
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Email</a>
+          <a href="https://github.com/zndrCode" target="_blank" rel="noopener noreferrer" class="btn"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        </div>
+      </section>
 
-      <div class="card">
-        <h2>About</h2>
-        <p>I'm a UI/UX Designer specializing in developing solutions with Figma, Tailwind, and CSS.</p><br>
+      <!-- 2. EXPERIENCE TILE -->
+      <section class="bento-card bento-experience" aria-labelledby="experience-title">
+        <div class="card-header">
+          <h2 id="experience-title"><i class="fas fa-briefcase" aria-hidden="true"></i> Experience</h2>
+        </div>
 
-        <p>I work on projects including building modern web applications, mobile apps, search engine optimization, digital marketing, and making code tutorials.
-          I've been diving deeper into the world of artificial intelligence,
-          focusing on integrating AI tools and techniques into modern applications.</p><br>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>Graphic Designer</strong>
+              <span class="timeline-period">2026 - Present</span>
+              <p>Freelance Projects</p>
+            </div>
+          </div>
 
-        <p>
-          Currently pursuing BSIT with hands-on experience in web design, ui/ux prototyping, and mobile applications.
-      </div>
+          <div class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <strong>BSIT Student</strong>
+              <span class="timeline-period">2023 - Present</span>
+              <p>St. John Paul II College of Davao</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- UPDATED TECH STACK SECTION -->
-      <div class="card">
-        <h2>Tech Stack</h2>
-        
+      <!-- 3. TECH STACK TILE -->
+      <section class="bento-card bento-stack" aria-labelledby="stack-title">
+        <div class="card-header">
+          <h2 id="stack-title"><i class="fas fa-layer-group" aria-hidden="true"></i> Tech Stack</h2>
+        </div>
+
         <div class="stack-category">
-          <h3 class="category-title">Frontend</h3>
-          <div class="chip-group">
-            <span class="chip">JavaScript</span>
-            <span class="chip">Tailwind CSS</span>
-            <span class="chip">HTML</span>
+          <h3 class="category-title">Design & Creative</h3>
+          <div class="chip-group design-chips">
+            <span class="chip">Figma</span>
+            <span class="chip">Graphic Design</span>
+            <span class="chip">UI/UX Design</span>
+            <span class="chip">Wireframing</span>
+            <span class="chip">Prototyping</span>
+            <span class="chip">Video Editing</span>
           </div>
         </div>
 
         <div class="stack-category">
-          <h3 class="category-title">Backend</h3>
-          <div class="chip-group">
+          <h3 class="category-title">Frontend</h3>
+          <div class="chip-group frontend-chips">
+            <span class="chip">JavaScript</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">HTML5 / CSS3</span>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3 class="category-title">Backend & Tools</h3>
+          <div class="chip-group backend-chips">
             <span class="chip">MySQL</span>
             <span class="chip">Python</span>
             <span class="chip">PHP</span>
+            <span class="chip">Git / GitHub</span>
           </div>
         </div>
-      </div>
-
-      <!-- BEYOND CODING -->
-      <div class="card">
-        <h2>Beyond Coding</h2>
-        <p>
-          When not designing or writing code, I focus on enhancing my video editing skills,
-          drawing, and learning videography. I enjoy sharing knowledge through work, experimentation,
-          and continuous learning.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="right-column">
-
-      <!-- EXPERIENCE -->
-      <div class="card">
-        <h2>Experience</h2>
-
-        <div class="timeline-item">
-          <strong>BSIT Student</strong>
-          <span>2023 - Present</span>
-          <p>St. John Paul II College of Davao</p>
-        </div>
-
-        <div class="timeline-item">
-          <strong>UI / Web Designer</strong>
-          <span>2026 - Present</span>
-          <p>Freelance Projects</p>
-        </div>
-      </div>
-
-      <!-- RECENT PROJECTS -->
-      <div class="card">
-        <div class="card-header">
-          <h2>Recent Projects</h2>
-          <a href="https://github.com/zndrCode" class="view-all">View All →</a>
-        </div>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>Eventra</h3>
-            <p class="muted">Event Management Mobile App</p>
-            <a href="https://github.com/zndrCode/Event-app-calendar" class="project-link">Github</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONTACT -->
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-
-        <p class="contact-intro">
-          Interested in working together, collaborating, or just saying hi?
-          Feel free to reach out anytime.
-        </p>
-
-        <form id="contactForm" class="contact-form">
-          <div class="form-row">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-          </div>
-
-          <textarea id="message" placeholder="Your Message" required></textarea>
-
-          <button type="submit" class="btn primary">
-            Send Message →
-          </button>
-        </form>
       </section>
 
-    </div> <!-- End of right-column -->
-    
-  </section> <!-- End of main-grid -->
+      <!-- 4. ABOUT TILE -->
+      <section id="about" class="bento-card bento-about" aria-labelledby="about-title">
+        <div class="card-header">
+          <h2 id="about-title"><i class="fas fa-compass" aria-hidden="true"></i> About & Approach</h2>
+        </div>
+        <p>I specialize in crafting clean, responsive digital solutions that bridge functional code with intuitive visual hierarchy.</p>
+        <p>Currently pursuing a BSIT degree while actively freelancing, building tutorials, and experimenting with AI-driven design workflows.</p>
+      </section>
 
-  <footer>
-    <p>© 2025 Zander Nacario</p>
-  </footer>
+      <!-- 5. BEYOND CODING TILE -->
+      <section class="bento-card bento-beyond" aria-labelledby="beyond-title">
+        <div class="card-header">
+          <h2 id="beyond-title"><i class="fas fa-clapperboard" aria-hidden="true"></i> Beyond Coding</h2>
+        </div>
+        <p>When away from the keyboard, I focus on video editing, videography, and drawing. Visual storytelling and pacing continually inform how I craft UI animations and layout rhythm.</p>
+        <div class="chip-group beyond-chips">
+          <span class="chip"><i class="fas fa-video" aria-hidden="true"></i> Video Editing</span>
+          <span class="chip"><i class="fas fa-camera" aria-hidden="true"></i> Videography</span>
+          <span class="chip"><i class="fas fa-pen-nib" aria-hidden="true"></i> Drawing</span>
+        </div>
+      </section>
 
-</div>
+      <!-- 6. FEATURED PROJECT 1: EVENTRA -->
+      <article id="projects" class="bento-card bento-project" aria-labelledby="project-eventra-title">
+        <div class="card-header">
+          <div class="header-tag">
+            <i class="fas fa-sparkles" aria-hidden="true"></i> Featured Project
+          </div>
+          <span class="project-badge">Mobile App</span>
+        </div>
 
-<script src="script.js"></script>
+        <div class="project-showcase">
+          <div class="project-thumb">
+            <img src="assets/images/Eventra.png" alt="Preview of Eventra mobile application interface" loading="lazy" />
+          </div>
+          <div class="project-details">
+            <div class="project-title-row">
+              <h3 id="project-eventra-title">Eventra</h3>
+              <span class="project-badge">Event App</span>
+            </div>
+            <p class="project-summary">Event Management Mobile App interface designed for intuitive event discovery, calendar scheduling, and user engagement.</p>
+            <div class="chip-group design-chips">
+              <span class="chip">Figma</span>
+              <span class="chip">Mobile UI</span>
+              <span class="chip">Prototyping</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/zndrCode/Event-app-calendar" target="_blank" rel="noopener noreferrer" class="btn primary">
+                <i class="fab fa-github" aria-hidden="true"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. FEATURED PROJECT 2: LOAFLY -->
+      <article class="bento-card bento-project" aria-labelledby="project-loafly-title">
+        <div class="card-header">
+          <div class="header-tag">
+            <i class="fas fa-sparkles" aria-hidden="true"></i> Featured Project
+          </div>
+          <span class="project-badge">Web Design</span>
+        </div>
+
+        <div class="project-showcase">
+          <div class="project-thumb">
+            <img src="assets/images/loafly.png" alt="Preview of Loafly artisan bakery and pastry shop website" loading="lazy" />
+          </div>
+          <div class="project-details">
+            <div class="project-title-row">
+              <h3 id="project-loafly-title">Loafly</h3>
+              <span class="project-badge">Pastry Website</span>
+            </div>
+            <p class="project-summary">Artisan pastry & bakery website crafted with warm, modern visual hierarchy, clean product displays, and responsive UI.</p>
+            <div class="chip-group frontend-chips">
+              <span class="chip">Web Design</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">Responsive UI</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/zndrCode/Pastry-Website" target="_blank" rel="noopener noreferrer" class="btn primary">
+                <i class="fab fa-github" aria-hidden="true"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. GRAPHIC DESIGN SHOWCASE (Horizontal Scroll) -->
+      <section id="graphics" class="bento-card bento-gallery" aria-labelledby="gallery-title">
+        <div class="card-header">
+          <div class="header-tag">
+            <i class="fas fa-palette" aria-hidden="true"></i> Freelance Showcase
+          </div>
+        </div>
+
+        <div class="gallery-intro">
+          <h2 id="gallery-title">Graphic Design Works</h2>
+          <p>I design custom digital collage artwork panels for arcade sticks and leverless controllers. Clean layouts, dynamic character collages, and custom tournament-ready panels.</p>
+        </div>
+
+        <div class="gallery-scroll" tabindex="0" role="region" aria-label="Graphic design gallery carousel">
+          <div class="gallery-item">
+            <img src="assets/images/graphic-designs/HQ72xyHb0AA3PUy.jpg" alt="Freelance Graphic Design Poster" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/graphic-designs/HRkmnNiaYAABzkh.jpg" alt="Freelance Graphic Design Artwork" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/graphic-designs/HRXj-FkbwAA6qel.jpg" alt="Graphic Design Creative Poster" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/graphic-designs/HSTretYbgAAhrT6.jpg" alt="Visual Design and Typography Artwork" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/graphic-designs/qb8zvm7y660i1.jpeg" alt="Graphic Illustration and Design Project" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/graphic-designs/20261014_073039.jpg" alt="Creative Graphic Design Work" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. CONTACT TILE -->
+      <section id="contact" class="bento-card bento-contact" aria-labelledby="contact-title">
+        <div class="contact-info">
+          <span class="contact-subtitle"><i class="fas fa-comments" aria-hidden="true"></i> Get In Touch</span>
+          <h2 id="contact-title">Let's build something remarkable together.</h2>
+          <p>Interested in collaborating on a web project, mobile UI, or freelance opportunity? Drop me a message anytime.</p>
+
+          <div class="contact-direct">
+            <a href="mailto:nzandergab@gmail.com" class="direct-email" aria-label="Send direct email to nzandergab@gmail.com">
+              <i class="fas fa-envelope" aria-hidden="true"></i> nzandergab@gmail.com
+            </a>
+            <span class="contact-location">
+              <i class="fas fa-location-dot" aria-hidden="true"></i> Davao City, PH
+            </span>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="input-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required aria-label="Your Name" />
+              </div>
+              <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+              </div>
+            </div>
+            <div class="input-group">
+              <textarea id="message" name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
+            </div>
+            <div class="form-action-row">
+              <button type="submit" id="submitBtn" class="btn primary">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message →
+              </button>
+              <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© <span id="currentYear">2026</span> Zander Nacario. Designed & crafted with care.</p>
+    </footer>
+
+  </div>
+
+  <!-- Deferred Script -->
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>
